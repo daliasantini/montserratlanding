@@ -31,9 +31,12 @@ export default function IconButton({ onClick, children, ...props }) {
       <div className='fixed z-20 bottom-8 sm:bottom-8 right-4 animate-fadeInBounce'>
         <button
           onClick={handleScrollToTop}
-          className='p-2 rounded border-2 border-foreground bg-background text-foregroundhover:text-accent hover:border-accent hover:text-accent dark:text-secondary transition-colors duration-200 hover:scale-110 active:scale-95'
+          className='p-2 rounded border-2 border-foreground bg-background text-foreground hover:border-accent hover:text-accent dark:text-secondary transition-colors duration-200 hover:scale-110 active:scale-95'
         >
+          <span className='text-foreground'>
+
           <MdOutlineKeyboardArrowUp />
+          </span>
         </button>
       </div>
     )
