@@ -6,7 +6,7 @@ export default function Footer() {
         Developed by{' '}
         <span>
           <a
-            href='https://www.behance.net/dalisanti'
+            href='https://www.behance.net/gallery/234517427/Portfolio-2025-Front-End-Design'
             target='_blank'
             rel='noopener noreferrer'
             className='underline hover:text-accent transition-colors duration-150'
