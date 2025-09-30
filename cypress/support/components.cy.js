@@ -72,9 +72,23 @@ describe('UI Components', () => {
     });
 
     it('changes state on click', () => {
-        cy.mount(<ToggleSwitch checked={false} onChange={cy.stub()} />);
-        cy.get('input[type="checkbox"]').check().should('be.checked');
-        cy.get('input[type="checkbox"]').uncheck().should('not.be.checked');
-    })
+      cy.mount(<ToggleSwitch checked={false} onChange={cy.stub()} />);
+      cy.get('input[type="checkbox"]').check().should('be.checked');
+      cy.get('input[type="checkbox"]').uncheck().should('not.be.checked');
+    });
+  });
+
+  describe('ModeToggle in Navbar (Integration)', () => {
+    beforeEach(() => {
+      cy.clearLocalStorage();
+      cy.visit('/tester');
+    });
+
+    it('toggles dark/light mode from Navbar button', () => {
+      cy.get('nav button[aria-label="Toggle theme"]').click();
+      cy.get('html').should('have.class', 'dark');
+      cy.get('nav button[aria-label="Toggle theme"]').click();
+      cy.get('html').should('not.have.class', 'dark');
+    });
   });
 });
