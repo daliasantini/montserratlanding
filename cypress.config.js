@@ -1,19 +1,21 @@
-const { defineConfig } = require('cypress');
+const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   e2e: {
-    specPattern: 'cypress/routes.cy.js',
-    baseUrl:
-      process.env.CYPRESS_BASE_URL || 'https://montserratlanding.vercel.app',
+    // E2E tests for routes/pages
+    specPattern: "cypress/e2e/**/*.cy.{js,jsx,ts,tsx}",
+    baseUrl: "https://montserratlanding.vercel.app",
     setupNodeEvents(on, config) {
+    
       return config;
     },
   },
   component: {
-    specPattern: 'cypress/components.cy.js',
+    // Component tests
+    specPattern: "cypress/component/**/*.cy.{js,jsx,ts,tsx}",
     devServer: {
-      framework: 'react',
-      bundler: 'webpack',
+      framework: "react",
+      bundler: "webpack",
     },
   },
 });
