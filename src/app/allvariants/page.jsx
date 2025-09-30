@@ -62,6 +62,7 @@ export default function AllVariants() {
       <div className='flex flex-col w-full justify-start xl:mr-40 lg:mr-40 md:mr-30 pt-2'>
         {variants.map((variant) => (
           <VariantCard
+          data-cy="variant-card"
             key={variant.id}
             name={variant.name}
             weight={variant.weight}

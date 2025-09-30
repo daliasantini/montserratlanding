@@ -36,7 +36,7 @@ describe('Multipage website', () => {
 
     it('All variants page lists options', () => {
       cy.visit('/allvariants');
-      cy.contains('All variants');
+      cy.get('[data-cy=variant-card]').first().should('be.visible').click();
     });
 
     it('Glyphs renders glyph charts and copies a char', () => {
@@ -54,5 +54,10 @@ describe('Multipage website', () => {
       cy.get('#tester-box button').first().click();
       cy.get('#tester-box p').should('have.class', 'italic');
     });
+
+    it('License page has info'), () => {
+      cy.visit('/tester');
+      cy.contains('License');
+    }
   });
 });
