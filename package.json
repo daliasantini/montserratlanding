@@ -6,6 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "cypress": "cypress open",
+    "cypress:run": "cypress run",
     "lint": "next lint"
   },
   "dependencies": {
@@ -17,6 +19,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "cypress": "^14.5.4",
     "tailwindcss": "^4"
   }
 }
