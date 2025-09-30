@@ -41,9 +41,15 @@ describe('Multipage website', () => {
 
     it('Glyphs renders glyph charts and copies a char', () => {
       cy.visit('/glyphs');
+
+      // Mock the clipboard API so it always succeeds
+      cy.window().then((win) => {
+        cy.stub(win.navigator.clipboard, 'writeText').resolves();
+      });
+
       cy.get('[data-cy=glyph-chart]').should('have.length.greaterThan', 0);
       cy.get('[data-cy=glyph-chart]').first().should('be.visible').click();
-      cy.get('[data-cy=glyph-chart]').first().click();
+
       cy.contains('Copied').should('be.visible');
     });
 
@@ -55,9 +61,10 @@ describe('Multipage website', () => {
       cy.get('#tester-box p').should('have.class', 'italic');
     });
 
-    it('License page has info'), () => {
-      cy.visit('/tester');
-      cy.contains('License');
-    }
+    it('License page has info'),
+      () => {
+        cy.visit('/tester');
+        cy.contains('License');
+      };
   });
 });
