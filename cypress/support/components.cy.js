@@ -1,5 +1,6 @@
 import ModeToggle from '@/app/components/ui/ModeToggle';
 import SliderControl from '@/app/components/ui/SliderControl';
+import ToggleSwitch from '@/app/components/ui/ToggleSwitch';
 
 describe('UI Components', () => {
   describe('ModeToggle component', () => {
@@ -50,9 +51,9 @@ describe('UI Components', () => {
       const onChangeStub = cy.stub();
       cy.mount(
         <SliderControl
-        label="Font size"
+          label='Font size'
           value={14}
-          type="range"
+          type='range'
           min={8}
           max={72}
           onChange={onChangeStub}
@@ -64,5 +65,16 @@ describe('UI Components', () => {
     });
   });
 
-  describe('ToggleSwitch', () => {});
+  describe('ToggleSwitch', () => {
+    it('renders correctly', () => {
+      cy.mount(<ToggleSwitch checked={false} onChange={cy.stub()} />);
+      cy.get('input[type="checkbox"]').should('exist');
+    });
+
+    it('changes state on click', () => {
+        cy.mount(<ToggleSwitch checked={false} onChange={cy.stub()} />);
+        cy.get('input[type="checkbox"]').check().should('be.checked');
+        cy.get('input[type="checkbox"]').uncheck().should('not.be.checked');
+    })
+  });
 });
