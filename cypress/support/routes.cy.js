@@ -39,9 +39,12 @@ describe('Multipage website', () => {
       cy.contains('All variants');
     });
 
-    it('Glyphs renders glyphs options', () => {
-      cy.visit('/glypsh');
-      cy.contains('Glyphs');
+    it('Glyphs renders glyph charts and copies a char', () => {
+      cy.visit('/glyphs');
+      cy.get('[data-cy=glyph-chart]').should('have.length.greaterThan', 0);
+      cy.get('[data-cy=glyph-chart]').first().should('be.visible').click();
+      cy.get('[data-cy=glyph-chart]').first().click();
+      cy.contains('Copied').should('be.visible');
     });
 
     it('Contain the tester-box', () => {

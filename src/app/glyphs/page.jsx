@@ -59,6 +59,7 @@ export default function Glyphs() {
       >
         {unicodeRange.map((char, index) => (
           <div
+            data-cy="glyph-chart"
             key={index}
             className='text-center p-1 rounded border-2 border-foreground bg-background text-foregroundhover:text-accent hover:border-accent hover:text-accent dark:text-secondary cursor-pointer transition-colors duration-200 hover:scale-110 active:scale-95'
             onClick={() => handleCopy(char)}
