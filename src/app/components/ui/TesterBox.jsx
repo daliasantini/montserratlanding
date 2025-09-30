@@ -60,7 +60,7 @@ export default function TesterBox({
 
 
   return (
-    <div className='w-[95%] max-w-[600px] rounded-xl border-2 border-foreground bg-background'>
+    <div id='tester-box' className='w-[95%] max-w-[600px] rounded-xl border-2 border-foreground bg-background'>
       <div className='flex justify-end align-middle flex-row gap-3 sm:gap-6 py-3 px-4 mb-4 border-b-2'>
         
         <SmallBtn onClick={handleItalic}>

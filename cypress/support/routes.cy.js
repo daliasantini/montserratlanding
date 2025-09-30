@@ -44,9 +44,12 @@ describe('Multipage website', () => {
       cy.contains('Glyphs');
     });
 
-    it("Tester has tester-box", () => {
-        cy.visit("/tester");
-
-    })
+    it('Contain the tester-box', () => {
+      cy.visit('/tester');
+      cy.get('#tester-box').should('exist');
+      cy.get('#tester-box').should('be.visible');
+      cy.get('#tester-box button').first().click();
+      cy.get('#tester-box p').should('have.class', 'italic');
+    });
   });
 });
